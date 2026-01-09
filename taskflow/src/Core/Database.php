@@ -1,10 +1,14 @@
 <?php
-class ConectiontDb{
- private PDO $pdo;
+class Database
+{
+    private static ?Database $instance = null;
+    private PDO $pdo;
 
-    public function __construct() {
+
+    private function __construct()
+    {
         $host = "localhost";
-        $dbname = "library_db";
+        $dbname = "taskflow";
         $user = "root";
         $pass = "";
 
@@ -14,7 +18,6 @@ class ConectiontDb{
                 $user,
                 $pass
             );
-
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         } catch (PDOException $e) {
@@ -22,7 +25,19 @@ class ConectiontDb{
         }
     }
 
-    public function getInstance(): PDO {
+   
+    public static function getInstance(): Database
+    {
+        if (self::$instance === null) {
+            self::$instance = new Database();
+        }
+
+        return self::$instance;
+    }
+
+
+    public function getConnection(): PDO
+    {
         return $this->pdo;
     }
 }
