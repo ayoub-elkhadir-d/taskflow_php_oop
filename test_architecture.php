@@ -3,6 +3,12 @@ require_once __DIR__ . '\taskflow\src\Entities\Administrator.php';
 require_once __DIR__ . '\taskflow\src\Entities\Manager.php';
 require_once __DIR__ . '\taskflow\src\Entities\Tester.php';
 require_once __DIR__ . '\taskflow\src\Entities\Developer.php';
+
+require_once __DIR__ . '\taskflow\src\Entities\BugTask.php';
+require_once __DIR__ . '\taskflow\src\Entities\FeatureTask.php';
+require_once __DIR__ . '\taskflow\src\Entities\MaintenanceTask.php';
+require_once __DIR__ . '\taskflow\src\Entities\Task.php';
+
 require_once __DIR__ . '\taskflow\src\Core\Database.php';
 
 echo "=== TASKFLOW PART 1: ARCHITECTURE VALIDATION ===\n\n";
@@ -47,32 +53,32 @@ try {
 }
 
 
-// // Test 3: Task Hierarchy
-// echo "\n3. Testing Task Hierarchy:\n";
-// try {
-//     $featureTask = new FeatureTask("New Login Feature", "Implement OAuth login", 1, 1);
-//     $bugTask = new BugTask("Fix CSS Bug", "Button alignment issue", 1, 1);
+// Test 3: Task Hierarchy
+echo "\n3. Testing Task Hierarchy:\n";
+try {
+    $featureTask = new FeatureTask("New Login Feature", "Implement OAuth login", 1, 1,null,null,null,null,null,null,null,null,null);
+    $bugTask = new BugTask("Fix CSS Bug", "Button alignment issue", 1, 1,null,null,null,null,null,null,null,null,null);
     
-//     if ($featureTask instanceof \src\Entities\Task) {
-//         echo "  PASS: FeatureTask extends Task\n";
-//     }
+    if ($featureTask instanceof \src\Entities\Task) {
+        echo "  PASS: FeatureTask extends Task\n";
+    }
     
-//     if ($bugTask instanceof \src\Entities\Task) {
-//         echo "  PASS: BugTask extends Task\n";
-//     }
+    if ($bugTask instanceof \src\Entities\Task) {
+        echo "  PASS: BugTask extends Task\n";
+    }
     
-//     // Check interface implementation
-//     if ($featureTask instanceof \src\Interfaces\Assignable) {
-//         echo "  PASS: FeatureTask implements Assignable\n";
-//     }
+    // Check interface implementation
+    if ($featureTask instanceof \src\Interfaces\Assignable) {
+        echo "  PASS: FeatureTask implements Assignable\n";
+    }
     
-//     if ($bugTask instanceof \src\Interfaces\Prioritizable) {
-//         echo "  PASS: BugTask implements Prioritizable\n";
-//     }
+    if ($bugTask instanceof \src\Interfaces\Prioritizable) {
+        echo "  PASS: BugTask implements Prioritizable\n";
+    }
     
-// } catch (Exception $e) {
-//     echo "   FAIL: " . $e->getMessage() . "\n";
-// }
+} catch (Exception $e) {
+    echo "   FAIL: " . $e->getMessage() . "\n";
+}
 
 
 // Test 4: Abstract Class Prevention

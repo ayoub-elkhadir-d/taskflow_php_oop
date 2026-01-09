@@ -16,8 +16,7 @@ abstract class Task{
     
     
     
-    function __construct($id,$title,$description,$projectId,$assigneeId,$reporterId,$priority,$status,$estimatedHours,$actualHours,$dueDate,$createdAt,$updatedAt
-      ){
+    function __construct($id,$title,$description,$projectId,$assigneeId,$reporterId,$priority,$status,$estimatedHours,$actualHours,$dueDate,$createdAt,$updatedAt){
       $this-> id = $id;
         $this-> title = $title;
         $this-> description = $description;
