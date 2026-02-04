@@ -8,5 +8,8 @@ function __construct(){
 
 function canCreateProject(){}
    function canAssignTasks(){}
-   function getRolePermissions(){}
+   function getRolePermissions(){
+          return "Tester";
+
+   }
 }

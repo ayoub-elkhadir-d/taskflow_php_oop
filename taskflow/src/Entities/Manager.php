@@ -9,5 +9,7 @@ function canCreateProject(){
     return 'Yes';
 }
 function canAssignTasks(){}
-function getRolePermissions(){}
+function getRolePermissions(){
+          return "Manager";
+}
 }

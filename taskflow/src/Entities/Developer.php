@@ -11,6 +11,7 @@ function canCreateProject(){
 }
    function canAssignTasks(){}
    function getRolePermissions(){
+      return "Developer";
 
    }
 }

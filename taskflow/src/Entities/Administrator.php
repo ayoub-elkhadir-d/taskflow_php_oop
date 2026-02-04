@@ -6,6 +6,8 @@ class Administrator extends TeamMember {
 
 function canCreateProject(){}
    function canAssignTasks(){}
-   function getRolePermissions(){}
+   function getRolePermissions(){
+      return "Admin";
+   }
 
 }
